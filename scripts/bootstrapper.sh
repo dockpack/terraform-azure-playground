@@ -1,5 +1,6 @@
 #!/bin/sh
 
-yum -y install git
-cd /home/ansible && git clone https://github.com/turingts/terraform-azure-playground.git
-cd terraform-azure-playground && sh scripts/centos/setup-cli.sh
+yum install -y centos-release-scl
+yum install -y rh-python36
+scl enable rh-python36 bash
+pip install ansible
