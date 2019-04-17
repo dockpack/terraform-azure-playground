@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 yum -y install git
 yum -y install ansible
