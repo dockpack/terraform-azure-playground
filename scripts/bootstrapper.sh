@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 yum install -y centos-release-scl
 yum install -y rh-python36
