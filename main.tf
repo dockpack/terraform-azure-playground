@@ -116,26 +116,26 @@ resource "azurerm_virtual_machine" "main" {
   }
 }
 
-resource "azurerm_virtual_machine_extension" "main" {
-  name                 = "hostname"
-  location             = "${azurerm_resource_group.main.location}"
-  resource_group_name  = "${azurerm_resource_group.main.name}"
-  virtual_machine_name = "${azurerm_virtual_machine.main.name}"
-  publisher            = "Microsoft.OSTCExtensions"
-  type                 = "CustomScriptForLinux"
-  type_handler_version = "1.2"
-
-  settings = <<SETTINGS
-  {
-  "fileUris": ["https://raw.githubusercontent.com/turingts/terraform-azure-playground/master/scripts/bootstrapper.sh"],
-    "commandToExecute": "curl -s -L https://raw.githubusercontent.com/turingts/terraform-azure-playground/master/scripts/bootstrapper.sh | bash"
-  }
-SETTINGS
-
-  tags {
-    environment = "development"
-  }
-}
+# resource "azurerm_virtual_machine_extension" "main" {
+#   name                 = "hostname"
+#   location             = "${azurerm_resource_group.main.location}"
+#   resource_group_name  = "${azurerm_resource_group.main.name}"
+#   virtual_machine_name = "${azurerm_virtual_machine.main.name}"
+#   publisher            = "Microsoft.OSTCExtensions"
+#   type                 = "CustomScriptForLinux"
+#   type_handler_version = "1.2"
+#
+#   settings = <<SETTINGS
+#   {
+#   "fileUris": ["https://raw.githubusercontent.com/turingts/terraform-azure-playground/master/scripts/bootstrapper.sh"],
+#     "commandToExecute": "curl -s -L https://raw.githubusercontent.com/turingts/terraform-azure-playground/master/scripts/bootstrapper.sh | bash"
+#   }
+# SETTINGS
+#
+#   tags {
+#     environment = "development"
+#   }
+# }
 
 data "azurerm_public_ip" "main" {
   name                = "${azurerm_public_ip.main.name}"
