@@ -128,7 +128,7 @@ resource "azurerm_virtual_machine_extension" "main" {
   settings = <<SETTINGS
   {
   "fileUris": ["https://raw.githubusercontent.com/turingts/terraform-azure-playground/master/scripts/bootstrapper.sh"],
-    "commandToExecute": "curl -s -L https://raw.githubusercontent.com/turingts/terraform-azure-playground/master/scripts/bootstrapper.sh | bash"
+    "commandToExecute": "bash bootstrapper.sh"
   }
 SETTINGS
 
