@@ -1,0 +1,6 @@
+# file: site.yml
+---
+- hosts: targets
+  become: yes
+  roles:
+    - role: RHEL7-CIS
